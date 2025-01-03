@@ -1,0 +1,360 @@
+<template><div><h1 id="common-issues" tabindex="-1"><a class="header-anchor" href="#common-issues"><span>Common Issues</span></a></h1>
+<p>This guide addresses frequently encountered issues in GO development and provides practical solutions.</p>
+<h2 id="installation-issues" tabindex="-1"><a class="header-anchor" href="#installation-issues"><span>Installation Issues</span></a></h2>
+<h3 id="visual-studio-setup" tabindex="-1"><a class="header-anchor" href="#visual-studio-setup"><span>Visual Studio Setup</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Visual Studio Installation Incomplete</p>
+<p>Symptoms:</p>
+<ul>
+<li>Missing templates</li>
+<li>Build tools unavailable</li>
+<li>Incorrect .NET version</li>
+</ul>
+</div>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Open Visual Studio Installer</li>
+<li>Modify installation:<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">☐ ASP.NET and web development</span>
+<span class="line">☐ .NET desktop development</span>
+<span class="line">☐ Data storage and processing</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>Repair installation if needed</li>
+</ol>
+<h3 id="sql-server-configuration" tabindex="-1"><a class="header-anchor" href="#sql-server-configuration"><span>SQL Server Configuration</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">SQL Server Connection Issues</p>
+<p>Symptoms:</p>
+<ul>
+<li>Cannot connect to database</li>
+<li>Windows Authentication fails</li>
+<li>TCP/IP connection errors</li>
+</ul>
+</div>
+<p><strong>Quick Fixes:</strong></p>
+<ol>
+<li>
+<p>Enable TCP/IP:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">SQL Server Configuration Manager →</span>
+<span class="line">SQL Server Network Configuration →</span>
+<span class="line">Protocols → Enable TCP/IP</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Configure Windows Authentication:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment">-- Check authentication mode</span></span>
+<span class="line"><span class="token keyword">SELECT</span> SERVERPROPERTY<span class="token punctuation">(</span><span class="token string">'IsIntegratedSecurityOnly'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment">-- 1 = Windows Authentication only</span></span>
+<span class="line"><span class="token comment">-- 0 = Mixed Mode</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h2 id="development-issues" tabindex="-1"><a class="header-anchor" href="#development-issues"><span>Development Issues</span></a></h2>
+<h3 id="git-problems" tabindex="-1"><a class="header-anchor" href="#git-problems"><span>Git Problems</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Git Configuration Issues</p>
+<p>Symptoms:</p>
+<ul>
+<li>Cannot pull/push changes</li>
+<li>SSH key errors</li>
+<li>Authentication failures</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Verify SSH configuration:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token comment"># Test SSH connection</span></span>
+<span class="line"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># Check SSH agent</span></span>
+<span class="line"><span class="token builtin class-name">eval</span> <span class="token variable"><span class="token variable">$(</span>ssh-agent <span class="token parameter variable">-s</span><span class="token variable">)</span></span></span>
+<span class="line">ssh-add ~/.ssh/id_ed25519</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Check Git configuration:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token function">git</span> config <span class="token parameter variable">--list</span></span>
+<span class="line"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"Your Name"</span></span>
+<span class="line"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"your.email@example.com"</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h3 id="database-migration" tabindex="-1"><a class="header-anchor" href="#database-migration"><span>Database Migration</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Database Update Problems</p>
+<p>Symptoms:</p>
+<ul>
+<li>Missing tables</li>
+<li>Column mismatches</li>
+<li>Constraint violations</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Check database version:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> ModelRevisionId </span>
+<span class="line"><span class="token keyword">FROM</span> <span class="token punctuation">[</span>GO<span class="token punctuation">.</span>LiveUpdate<span class="token punctuation">]</span><span class="token punctuation">.</span>ModelSync<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Apply missing updates:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">1. Navigate to: SQL/LiveUpdate.History</span>
+<span class="line">2. Sort files by version</span>
+<span class="line">3. Run missing scripts in order</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h2 id="runtime-issues" tabindex="-1"><a class="header-anchor" href="#runtime-issues"><span>Runtime Issues</span></a></h2>
+<h3 id="performance-problems" tabindex="-1"><a class="header-anchor" href="#performance-problems"><span>Performance Problems</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Slow Application Performance</p>
+<p>Symptoms:</p>
+<ul>
+<li>Slow page loads</li>
+<li>Database timeouts</li>
+<li>High resource usage</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Check IIS settings:</p>
+<div class="language-xml line-numbers-mode" data-highlighter="prismjs" data-ext="xml" data-title="xml"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>system.web</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>compilation</span> <span class="token attr-name">debug</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>caching</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>outputCacheSettings</span><span class="token punctuation">></span></span></span>
+<span class="line">      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>outputCacheProfiles</span><span class="token punctuation">></span></span></span>
+<span class="line">        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Default<span class="token punctuation">"</span></span> <span class="token attr-name">duration</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3600<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></span>
+<span class="line">      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>outputCacheProfiles</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>outputCacheSettings</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>caching</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>system.web</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Optimize database:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment">-- Update statistics</span></span>
+<span class="line"><span class="token keyword">EXEC</span> sp_updatestats<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- Check index fragmentation</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> sys<span class="token punctuation">.</span>dm_db_index_physical_stats<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h3 id="memory-issues" tabindex="-1"><a class="header-anchor" href="#memory-issues"><span>Memory Issues</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Memory Consumption</p>
+<p>Symptoms:</p>
+<ul>
+<li>Application pool crashes</li>
+<li>Out of memory exceptions</li>
+<li>Slow response times</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Configure application pool:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">Advanced Settings →</span>
+<span class="line">Private Memory Limit: 1048576 (1GB)</span>
+<span class="line">Virtual Memory Limit: 0 (no limit)</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Monitor memory usage:</p>
+<div class="language-powershell line-numbers-mode" data-highlighter="prismjs" data-ext="powershell" data-title="powershell"><pre v-pre><code><span class="line"><span class="token comment"># Check memory usage</span></span>
+<span class="line"><span class="token function">Get-Process</span> w3wp <span class="token punctuation">|</span> <span class="token function">Select-Object</span> WorkingSet<span class="token punctuation">,</span> VM</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h2 id="deployment-issues" tabindex="-1"><a class="header-anchor" href="#deployment-issues"><span>Deployment Issues</span></a></h2>
+<h3 id="file-permission-problems" tabindex="-1"><a class="header-anchor" href="#file-permission-problems"><span>File Permission Problems</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Access Denied Errors</p>
+<p>Symptoms:</p>
+<ul>
+<li>Cannot write files</li>
+<li>Deployment script fails</li>
+<li>Runtime access errors</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Set folder permissions:<div class="language-powershell line-numbers-mode" data-highlighter="prismjs" data-ext="powershell" data-title="powershell"><pre v-pre><code><span class="line"><span class="token comment"># Grant full control to application pool</span></span>
+<span class="line"><span class="token variable">$path</span> = <span class="token string">"C:\inetpub\wwwroot\GenerativeObjectsApplications"</span></span>
+<span class="line"><span class="token variable">$acl</span> = <span class="token function">Get-Acl</span> <span class="token variable">$path</span></span>
+<span class="line"><span class="token variable">$rule</span> = <span class="token function">New-Object</span> System<span class="token punctuation">.</span>Security<span class="token punctuation">.</span>AccessControl<span class="token punctuation">.</span>FileSystemAccessRule<span class="token punctuation">(</span></span>
+<span class="line">    <span class="token string">"IIS APPPOOL\GOApplicationPool"</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token string">"FullControl"</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token string">"ContainerInherit,ObjectInherit"</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token string">"None"</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token string">"Allow"</span></span>
+<span class="line"><span class="token punctuation">)</span></span>
+<span class="line"><span class="token variable">$acl</span><span class="token punctuation">.</span>SetAccessRule<span class="token punctuation">(</span><span class="token variable">$rule</span><span class="token punctuation">)</span></span>
+<span class="line"><span class="token function">Set-Acl</span> <span class="token variable">$path</span> <span class="token variable">$acl</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h3 id="url-rewrite-issues" tabindex="-1"><a class="header-anchor" href="#url-rewrite-issues"><span>URL Rewrite Issues</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">URL Rewrite Not Working</p>
+<p>Symptoms:</p>
+<ul>
+<li>404 errors</li>
+<li>Incorrect routing</li>
+<li>Module not loaded</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Verify module installation:</p>
+<div class="language-xml line-numbers-mode" data-highlighter="prismjs" data-ext="xml" data-title="xml"><pre v-pre><code><span class="line"><span class="token comment">&lt;!-- Check web.config --></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>system.webServer</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modules</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>RewriteModule<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modules</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>system.webServer</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Check rules configuration:</p>
+<div class="language-xml line-numbers-mode" data-highlighter="prismjs" data-ext="xml" data-title="xml"><pre v-pre><code><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rewrite</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rules</span><span class="token punctuation">></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rule</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Example<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="line">      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>match</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>^example/(.*)$<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></span>
+<span class="line">      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Rewrite<span class="token punctuation">"</span></span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example.aspx?id={R:1}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></span>
+<span class="line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rule</span><span class="token punctuation">></span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rules</span><span class="token punctuation">></span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rewrite</span><span class="token punctuation">></span></span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h2 id="generation-issues" tabindex="-1"><a class="header-anchor" href="#generation-issues"><span>Generation Issues</span></a></h2>
+<h3 id="model-validation" tabindex="-1"><a class="header-anchor" href="#model-validation"><span>Model Validation</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Model Validation Fails</p>
+<p>Symptoms:</p>
+<ul>
+<li>Invalid entity relationships</li>
+<li>Missing required fields</li>
+<li>Inconsistent data types</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Check entity definitions:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Verify primary keys</span>
+<span class="line">- Check foreign key relationships</span>
+<span class="line">- Validate field types</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Review model constraints:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Required fields marked</span>
+<span class="line">- Correct data types</span>
+<span class="line">- Valid relationships</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h3 id="code-generation" tabindex="-1"><a class="header-anchor" href="#code-generation"><span>Code Generation</span></a></h3>
+<div class="hint-container warning">
+<p class="hint-container-title">Generation Process Issues</p>
+<p>Symptoms:</p>
+<ul>
+<li>Incomplete generation</li>
+<li>Missing files</li>
+<li>Template errors</li>
+</ul>
+</div>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>
+<p>Clear temporary files:</p>
+<div class="language-powershell line-numbers-mode" data-highlighter="prismjs" data-ext="powershell" data-title="powershell"><pre v-pre><code><span class="line"><span class="token function">Remove-Item</span> <span class="token string">"C:\Windows\Temp\GO*"</span> <span class="token operator">-</span>Force <span class="token operator">-</span>Recurse</span>
+<span class="line"><span class="token function">Remove-Item</span> <span class="token string">"<span class="token variable">$env</span>:USERPROFILE\AppData\Local\Temp\GO*"</span> <span class="token operator">-</span>Force <span class="token operator">-</span>Recurse</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Verify templates:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Check custom templates</span>
+<span class="line">- Validate modifications</span>
+<span class="line">- Review generation logs</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h2 id="best-practices-for-issue-prevention" tabindex="-1"><a class="header-anchor" href="#best-practices-for-issue-prevention"><span>Best Practices for Issue Prevention</span></a></h2>
+<h3 id="regular-maintenance" tabindex="-1"><a class="header-anchor" href="#regular-maintenance"><span>Regular Maintenance</span></a></h3>
+<ol>
+<li>
+<p>Database Maintenance:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment">-- Regular cleanup</span></span>
+<span class="line"><span class="token keyword">EXEC</span> sp_updatestats<span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">DBCC</span> SHRINKDATABASE<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>IIS Maintenance:</p>
+<div class="language-powershell line-numbers-mode" data-highlighter="prismjs" data-ext="powershell" data-title="powershell"><pre v-pre><code><span class="line"><span class="token comment"># Regular recycling</span></span>
+<span class="line"><span class="token function">Set-WebConfigurationProperty</span> <span class="token operator">-</span><span class="token keyword">Filter</span> <span class="token string">"system.applicationHost/applicationPools/applicationPoolDefaults"</span> <span class="token operator">-</span>Name <span class="token string">"recycling.periodicRestart.time"</span> <span class="token operator">-</span>Value <span class="token string">"00:00:00"</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h3 id="monitoring" tabindex="-1"><a class="header-anchor" href="#monitoring"><span>Monitoring</span></a></h3>
+<ol>
+<li>
+<p>Application Monitoring:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Check event logs</span>
+<span class="line">- Monitor performance counters</span>
+<span class="line">- Review application logs</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>Database Monitoring:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment">-- Monitor connections</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> sys<span class="token punctuation">.</span>dm_exec_sessions<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- Check blocking</span></span>
+<span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> sys<span class="token punctuation">.</span>dm_exec_requests<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<h2 id="getting-support" tabindex="-1"><a class="header-anchor" href="#getting-support"><span>Getting Support</span></a></h2>
+<h3 id="support-resources" tabindex="-1"><a class="header-anchor" href="#support-resources"><span>Support Resources</span></a></h3>
+<ol>
+<li>
+<p>Internal Resources:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Documentation</span>
+<span class="line">- Knowledge base</span>
+<span class="line">- Team wiki</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<p>External Support:</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- GO support portal</span>
+<span class="line">- Community forums</span>
+<span class="line">- Technical support</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+</ol>
+<div class="hint-container tip">
+<p class="hint-container-title">Documentation</p>
+<p>Keep track of issues and solutions for future reference.</p>
+</div>
+<h2 id="next-steps" tabindex="-1"><a class="header-anchor" href="#next-steps"><span>Next Steps</span></a></h2>
+<p>After resolving common issues:</p>
+<ol>
+<li>Review <RouteLink to="/guide/development/best-practices.html">Best Practices</RouteLink></li>
+<li>Check <RouteLink to="/guide/troubleshooting/error-reference.html">Error Reference</RouteLink></li>
+<li>Update <RouteLink to="/guide/development/documentation.html">Documentation</RouteLink></li>
+</ol>
+<div class="hint-container warning">
+<p class="hint-container-title">Prevention</p>
+<p>Implement monitoring and maintenance procedures to prevent common issues.</p>
+</div>
+</div></template>
+
+
