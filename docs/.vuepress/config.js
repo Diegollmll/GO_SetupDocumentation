@@ -50,14 +50,6 @@ export default defineUserConfig({
           ]
         },
         {
-          text: 'Deployment',
-          collapsible: false,
-          children: [
-            '/guide/deployment/setup.md',
-            '/guide/deployment/verification.md'
-          ]
-        },
-        {
           text: 'Troubleshooting',
           collapsible: false,
           children: [
