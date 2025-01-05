@@ -1,3 +1,95 @@
+# Repostiories, Database and Application Setup
+
+## Prerequisites
+
+::: warning Before You Begin
+Ensure you have:
+- SQL Server installed
+- SQL Server Management Studio (SSMS)
+- Administrator access to SQL Server
+- Git installed and configured
+- SSH key set up in GitHub
+:::
+
+## Repository Setup
+
+### SSH Key Configuration
+
+1. Generate SSH key:
+```bash
+# Open Git Bash and run:
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Press Enter to accept default file location
+# Enter a secure passphrase when prompted
+```
+
+2. Add SSH key to ssh-agent:
+```bash
+# Start ssh-agent
+eval "$(ssh-agent -s)"
+
+# Add your SSH private key
+ssh-add ~/.ssh/id_ed25519
+```
+
+3. Add SSH key to GitHub:
+   - Copy the public key content:
+     ```bash
+     cat ~/.ssh/id_ed25519.pub
+     ```
+   - Go to GitHub Settings → SSH and GPG keys
+   - Click "New SSH key"
+   - Paste your public key
+   - Click "Add SSH key"
+
+4. Test SSH connection:
+```bash
+ssh -T git@github.com
+```
+
+### Clone Repositories
+
+1. Create projects directory:
+```bash
+mkdir C:\Projects
+cd C:\Projects
+mkdir GenerativeObjects
+cd GenerativeObjects
+```
+
+2. Clone repositories:
+```bash
+# Clone Portal
+git clone <https://github.com/generative-objects-org/go-portal> go-portal
+
+# Clone Generator
+git clone <https://github.com/generative-objects-org/go-generator> go-generator
+
+# Clone Modeler
+git clone <https://github.com/generative-objects-org/go-modeler> go-modeler
+```
+
+### Build Solutions
+
+1. Open and build go-portal:
+```
+- Open go-portal solution in Visual Studio
+- Build solution (make sure build succeeds)
+```
+
+2. Open and build go-generator:
+```
+- Open go-generator solution in Visual Studio
+- Build solution (make sure build succeeds)
+```
+
+3. Open and build go-modeler:
+```
+- Open go-modeler solution in Visual Studio
+- Build solution (make sure build succeeds)
+```
+
 # Database and Application Setup
 
 ## Prerequisites
