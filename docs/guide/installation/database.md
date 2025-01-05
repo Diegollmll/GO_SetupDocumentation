@@ -32,7 +32,7 @@ Ensure you have:
 
 3. At the top of the script, keep only the basic CREATE DATABASE statement:
    ```sql
-   CREATE DATABASE GoPortal
+   CREATE DATABASE GOPortal
    ```
    Remove any additional configurations (like containment settings)
 
@@ -73,6 +73,20 @@ If either database is missing, review the previous steps and ensure all scripts 
 This step is mandatory for GO to function properly. Each component requires specific configuration files.
 :::
 
+### Identifying Your SQL Server Instance Name
+
+1. Open SQL Server Management Studio
+2. Look at the server name you use to connect:
+   - It might look like: `DESKTOP-58OTF2M\SQLEXPRESS`
+   - Or: `.\SQLEXPRESS`
+   - Or: `COMPUTERNAME\SQLEXPRESS01`
+
+::: tip Finding Your Instance Name
+Your exact instance name is crucial for the connection strings to work. You can find it:
+- In SQL Server Management Studio's connection dialog
+- At the top of SSMS window after connecting
+:::
+
 ### Portal Settings Setup
 
 1. Navigate to the Portal project:
@@ -84,15 +98,15 @@ This step is mandatory for GO to function properly. Each component requires spec
    - `appsettings.Development.json`
    - `appsettings.Production.json`
 
-3. Add the following content to both files:
+3. Add the following content to both files (replace INSTANCE_NAME with your SQL Server instance name):
 
 ```json
 {
-  "MainConnectionString": "data source=.\\SQLEXPRESS01; initial catalog=GOPortal;integrated security=SSPI",
+  "MainConnectionString": "data source=INSTANCE_NAME; initial catalog=GOPortal;integrated security=SSPI",
   "DefaultHostName": "localhost",
   "ShowExceptionDetails": "true",
   "DatabaseFactoryToUse": "SqlServerDatabaseFactory",
-  "DatabaseServerConnectionString": "data source=.\\SQLEXPRESS01; integrated security=SSPI; TrustServerCertificate=True",
+  "DatabaseServerConnectionString": "data source=INSTANCE_NAME; integrated security=SSPI; TrustServerCertificate=True",
   "MetamodelScriptsFolder": "C:\\Projects\\GenerativeObjects\\GO-Metamodels",
   // SMTP Configuration
   "SMTP": "TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE",
@@ -102,6 +116,18 @@ This step is mandatory for GO to function properly. Each component requires spec
   "SMTPPassword": "TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE"
 }
 ```
+
+For example, if your instance name is `DESKTOP-58OTF2M\SQLEXPRESS`, your connection strings would be:
+```json
+"MainConnectionString": "data source=DESKTOP-58OTF2M\\SQLEXPRESS; initial catalog=GOPortal;integrated security=SSPI",
+"DatabaseServerConnectionString": "data source=DESKTOP-58OTF2M\\SQLEXPRESS; integrated security=SSPI; TrustServerCertificate=True",
+```
+
+::: warning Note on Backslashes
+When using a full instance name in JSON:
+- Use double backslashes (`\\`) in the connection string
+- Single backslash in SSMS connection dialog
+:::
 
 ### Generator Settings Setup
 
@@ -126,7 +152,7 @@ This step is mandatory for GO to function properly. Each component requires spec
    - `appsettings.Production.json`
 
 ::: tip Configuration Notes
-- Replace `SQLEXPRESS01` with your SQL Server instance name if different
+- Ensure you use your exact SQL Server instance name in connection strings
 - The SMTP settings can remain as placeholders for initial setup
 - Ensure the `MetamodelScriptsFolder` path matches your actual GO-Metamodels location
 :::
@@ -159,6 +185,9 @@ C:\Projects\GenerativeObjects\go-portal\Scripts\deploy_runtime_libraries.cmd
 
 2. Deploy Generator (run in order):
 ```bash
+# Reset IIS
+iisreset
+
 # Deploy application
 C:\Projects\GenerativeObjects\go-generator\Scripts\deployapplication.cmd
 
@@ -171,6 +200,9 @@ C:\Projects\GenerativeObjects\go-generator\Scripts\deployTaskPerformers.bat
 
 3. Deploy Modeler (run in order):
 ```bash
+# Reset IIS
+iisreset
+
 # Deploy application
 C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deployapplication.cmd
 
