@@ -60,14 +60,14 @@ cd GenerativeObjects
 
 2. Clone repositories:
 ```bash
-# Clone Portal
-git clone <https://github.com/generative-objects-org/go-portal> go-portal
+# Clone GO Portal
+git clone git@github.com:generative-objects-org/go-portal.git go-portal
 
-# Clone Generator
-git clone <https://github.com/generative-objects-org/go-generator> go-generator
+# Clone GO Generator
+git clone git@github.com:generative-objects-org/go-generator.git go-generator
 
-# Clone Modeler
-git clone <https://github.com/generative-objects-org/go-modeler> go-modeler
+# Clone GO Modeler
+git clone git@github.com:generative-objects-org/go-modeler.git go-modeler
 ```
 
 ### Build Solutions

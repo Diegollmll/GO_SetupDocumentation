@@ -181,6 +181,325 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/setup.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/verification.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Repostiories, Database and Application Setup",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Prerequisites",
+        "slug": "prerequisites",
+        "link": "#prerequisites",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Repository Setup",
+        "slug": "repository-setup",
+        "link": "#repository-setup",
+        "children": [
+          {
+            "level": 3,
+            "title": "SSH Key Configuration",
+            "slug": "ssh-key-configuration",
+            "link": "#ssh-key-configuration",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Clone Repositories",
+            "slug": "clone-repositories",
+            "link": "#clone-repositories",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Build Solutions",
+            "slug": "build-solutions",
+            "link": "#build-solutions",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Prerequisites",
+        "slug": "prerequisites-1",
+        "link": "#prerequisites-1",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Create Databases",
+        "slug": "create-databases",
+        "link": "#create-databases",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Initialize Databases",
+        "slug": "initialize-databases",
+        "link": "#initialize-databases",
+        "children": [
+          {
+            "level": 3,
+            "title": "Portal Database Setup",
+            "slug": "portal-database-setup",
+            "link": "#portal-database-setup",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Generator Database Setup",
+            "slug": "generator-database-setup",
+            "link": "#generator-database-setup",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Final Database Verification",
+        "slug": "final-database-verification",
+        "link": "#final-database-verification",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Application Settings Configuration",
+        "slug": "application-settings-configuration",
+        "link": "#application-settings-configuration",
+        "children": [
+          {
+            "level": 3,
+            "title": "Identifying Your SQL Server Instance Name",
+            "slug": "identifying-your-sql-server-instance-name",
+            "link": "#identifying-your-sql-server-instance-name",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Portal Settings Setup",
+            "slug": "portal-settings-setup",
+            "link": "#portal-settings-setup",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Generator Settings Setup",
+            "slug": "generator-settings-setup",
+            "link": "#generator-settings-setup",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Modeler Settings Setup",
+            "slug": "modeler-settings-setup",
+            "link": "#modeler-settings-setup",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Deployment Process",
+        "slug": "deployment-process",
+        "link": "#deployment-process",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Next Steps",
+        "slug": "next-steps",
+        "link": "#next-steps",
+        "children": []
+      }
+    ],
+    "path": "/guide/installation/database.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Final Configuration Steps",
+    "headers": [
+      {
+        "level": 2,
+        "title": "IIS Setup",
+        "slug": "iis-setup",
+        "link": "#iis-setup",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Deploy Applications",
+        "slug": "deploy-applications",
+        "link": "#deploy-applications",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Configure Applications in IIS",
+        "slug": "configure-applications-in-iis",
+        "link": "#configure-applications-in-iis",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Final Verification",
+        "slug": "final-verification",
+        "link": "#final-verification",
+        "children": []
+      }
+    ],
+    "path": "/guide/installation/iis.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Software Installation",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Visual Studio 2022",
+        "slug": "visual-studio-2022",
+        "link": "#visual-studio-2022",
+        "children": [
+          {
+            "level": 3,
+            "title": "Installation Steps",
+            "slug": "installation-steps",
+            "link": "#installation-steps",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": ".NET Core Installation",
+        "slug": "net-core-installation",
+        "link": "#net-core-installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "SQL Server",
+        "slug": "sql-server",
+        "link": "#sql-server",
+        "children": [
+          {
+            "level": 3,
+            "title": "SQL Server Express Installation",
+            "slug": "sql-server-express-installation",
+            "link": "#sql-server-express-installation",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "SQL Server Management Studio (SSMS)",
+            "slug": "sql-server-management-studio-ssms",
+            "link": "#sql-server-management-studio-ssms",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "URL Rewrite Module Installation",
+        "slug": "url-rewrite-module-installation",
+        "link": "#url-rewrite-module-installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Git Tools",
+        "slug": "git-tools",
+        "link": "#git-tools",
+        "children": [
+          {
+            "level": 3,
+            "title": "Git for Windows",
+            "slug": "git-for-windows",
+            "link": "#git-for-windows",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Git Extensions (Optional but Recommended)",
+            "slug": "git-extensions-optional-but-recommended",
+            "link": "#git-extensions-optional-but-recommended",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Next Steps",
+        "slug": "next-steps",
+        "link": "#next-steps",
+        "children": []
+      }
+    ],
+    "path": "/guide/installation/software.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Windows Configuration",
+    "headers": [
+      {
+        "level": 2,
+        "title": "IIS Features Installation",
+        "slug": "iis-features-installation",
+        "link": "#iis-features-installation",
+        "children": [
+          {
+            "level": 3,
+            "title": "Step 1: Access Windows Features",
+            "slug": "step-1-access-windows-features",
+            "link": "#step-1-access-windows-features",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Step 2: Enable Required Features",
+            "slug": "step-2-enable-required-features",
+            "link": "#step-2-enable-required-features",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Step 3: Required Directories Setup",
+            "slug": "step-3-required-directories-setup",
+            "link": "#step-3-required-directories-setup",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Next Steps",
+        "slug": "next-steps",
+        "link": "#next-steps",
+        "children": []
+      }
+    ],
+    "path": "/guide/installation/windows.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "Advanced Features",
     "headers": [
       {
@@ -791,268 +1110,6 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
-    "title": "Database and Application Setup",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Prerequisites",
-        "slug": "prerequisites",
-        "link": "#prerequisites",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Create Databases",
-        "slug": "create-databases",
-        "link": "#create-databases",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Initialize Databases",
-        "slug": "initialize-databases",
-        "link": "#initialize-databases",
-        "children": [
-          {
-            "level": 3,
-            "title": "Portal Database Setup",
-            "slug": "portal-database-setup",
-            "link": "#portal-database-setup",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Generator Database Setup",
-            "slug": "generator-database-setup",
-            "link": "#generator-database-setup",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Final Database Verification",
-        "slug": "final-database-verification",
-        "link": "#final-database-verification",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Application Settings Configuration",
-        "slug": "application-settings-configuration",
-        "link": "#application-settings-configuration",
-        "children": [
-          {
-            "level": 3,
-            "title": "Portal Settings Setup",
-            "slug": "portal-settings-setup",
-            "link": "#portal-settings-setup",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Generator Settings Setup",
-            "slug": "generator-settings-setup",
-            "link": "#generator-settings-setup",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Modeler Settings Setup",
-            "slug": "modeler-settings-setup",
-            "link": "#modeler-settings-setup",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Deployment Process",
-        "slug": "deployment-process",
-        "link": "#deployment-process",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Next Steps",
-        "slug": "next-steps",
-        "link": "#next-steps",
-        "children": []
-      }
-    ],
-    "path": "/guide/installation/database.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Final Configuration Steps",
-    "headers": [
-      {
-        "level": 2,
-        "title": "IIS Setup",
-        "slug": "iis-setup",
-        "link": "#iis-setup",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Deploy Applications",
-        "slug": "deploy-applications",
-        "link": "#deploy-applications",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Configure Applications in IIS",
-        "slug": "configure-applications-in-iis",
-        "link": "#configure-applications-in-iis",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Final Verification",
-        "slug": "final-verification",
-        "link": "#final-verification",
-        "children": []
-      }
-    ],
-    "path": "/guide/installation/iis.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Software Installation",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Visual Studio 2022",
-        "slug": "visual-studio-2022",
-        "link": "#visual-studio-2022",
-        "children": [
-          {
-            "level": 3,
-            "title": "Installation Steps",
-            "slug": "installation-steps",
-            "link": "#installation-steps",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": ".NET Core Installation",
-        "slug": "net-core-installation",
-        "link": "#net-core-installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "SQL Server",
-        "slug": "sql-server",
-        "link": "#sql-server",
-        "children": [
-          {
-            "level": 3,
-            "title": "SQL Server Express Installation",
-            "slug": "sql-server-express-installation",
-            "link": "#sql-server-express-installation",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "SQL Server Management Studio (SSMS)",
-            "slug": "sql-server-management-studio-ssms",
-            "link": "#sql-server-management-studio-ssms",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "URL Rewrite Module Installation",
-        "slug": "url-rewrite-module-installation",
-        "link": "#url-rewrite-module-installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Git Tools",
-        "slug": "git-tools",
-        "link": "#git-tools",
-        "children": [
-          {
-            "level": 3,
-            "title": "Git for Windows",
-            "slug": "git-for-windows",
-            "link": "#git-for-windows",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Git Extensions (Optional but Recommended)",
-            "slug": "git-extensions-optional-but-recommended",
-            "link": "#git-extensions-optional-but-recommended",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Next Steps",
-        "slug": "next-steps",
-        "link": "#next-steps",
-        "children": []
-      }
-    ],
-    "path": "/guide/installation/software.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Windows Configuration",
-    "headers": [
-      {
-        "level": 2,
-        "title": "IIS Features Installation",
-        "slug": "iis-features-installation",
-        "link": "#iis-features-installation",
-        "children": [
-          {
-            "level": 3,
-            "title": "Step 1: Access Windows Features",
-            "slug": "step-1-access-windows-features",
-            "link": "#step-1-access-windows-features",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Step 2: Enable Required Features",
-            "slug": "step-2-enable-required-features",
-            "link": "#step-2-enable-required-features",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Step 3: Required Directories Setup",
-            "slug": "step-3-required-directories-setup",
-            "link": "#step-3-required-directories-setup",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Next Steps",
-        "slug": "next-steps",
-        "link": "#next-steps",
-        "children": []
-      }
-    ],
-    "path": "/guide/installation/windows.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "Common Issues",
     "headers": [
       {
@@ -1396,20 +1453,6 @@ export const SEARCH_INDEX = [
       }
     ],
     "path": "/guide/troubleshooting/error-reference.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/setup.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/verification.html",
     "pathLocale": "/",
     "extraFields": []
   },
