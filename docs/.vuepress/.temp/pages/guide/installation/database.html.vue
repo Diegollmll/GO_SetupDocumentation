@@ -1,86 +1,4 @@
-<template><div><h2 id="ssh-key-configuration" tabindex="-1"><a class="header-anchor" href="#ssh-key-configuration"><span>SSH Key Configuration</span></a></h2>
-<div class="hint-container warning">
-<p class="hint-container-title">Prerequisites</p>
-<p>Before cloning repositories, you must set up SSH authentication:</p>
-</div>
-<ol>
-<li>Generate SSH key:</li>
-</ol>
-<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token comment"># Open Git Bash and run:</span></span>
-<span class="line">ssh-keygen <span class="token parameter variable">-t</span> ed25519 <span class="token parameter variable">-C</span> <span class="token string">"your_email@example.com"</span></span>
-<span class="line"></span>
-<span class="line"><span class="token comment"># Press Enter to accept default file location</span></span>
-<span class="line"><span class="token comment"># Enter a secure passphrase when prompted</span></span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2">
-<li>Add SSH key to ssh-agent:</li>
-</ol>
-<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token comment"># Start ssh-agent</span></span>
-<span class="line"><span class="token builtin class-name">eval</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span>ssh-agent <span class="token parameter variable">-s</span><span class="token variable">)</span></span>"</span></span>
-<span class="line"></span>
-<span class="line"><span class="token comment"># Add your SSH private key</span></span>
-<span class="line">ssh-add ~/.ssh/id_ed25519</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3">
-<li>
-<p>Add SSH key to GitHub:</p>
-<ul>
-<li>Copy the public key content:<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token function">cat</span> ~/.ssh/id_ed25519.pub</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
-<li>Go to GitHub Settings → SSH and GPG keys</li>
-<li>Click &quot;New SSH key&quot;</li>
-<li>Paste your public key</li>
-<li>Click &quot;Add SSH key&quot;</li>
-</ul>
-</li>
-<li>
-<p>Test SSH connection:</p>
-</li>
-</ol>
-<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="repository-setup" tabindex="-1"><a class="header-anchor" href="#repository-setup"><span>Repository Setup</span></a></h2>
-<ol>
-<li>Create projects directory:</li>
-</ol>
-<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token function">mkdir</span> C:<span class="token punctuation">\</span>Projects</span>
-<span class="line"><span class="token builtin class-name">cd</span> C:<span class="token punctuation">\</span>Projects</span>
-<span class="line"><span class="token function">mkdir</span> GenerativeObjects</span>
-<span class="line"><span class="token builtin class-name">cd</span> GenerativeObjects</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2">
-<li>Clone repositories:</li>
-</ol>
-<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token comment"># Clone Portal</span></span>
-<span class="line"><span class="token function">git</span> clone <span class="token operator">&lt;</span>https://github.com/generative-objects-org/go-portal<span class="token operator">></span> go-portal</span>
-<span class="line"></span>
-<span class="line"><span class="token comment"># Clone Generator</span></span>
-<span class="line"><span class="token function">git</span> clone <span class="token operator">&lt;</span>https://github.com/generative-objects-org/go-generator<span class="token operator">></span> go-generator</span>
-<span class="line"></span>
-<span class="line"><span class="token comment"># Clone Modeler</span></span>
-<span class="line"><span class="token function">git</span> clone <span class="token operator">&lt;</span>https://github.com/generative-objects-org/go-modeler<span class="token operator">></span> go-modeler</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="building-solutions" tabindex="-1"><a class="header-anchor" href="#building-solutions"><span>Building Solutions</span></a></h2>
-<ol>
-<li>Open and build go-portal:</li>
-</ol>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Open go-portal solution in Visual Studio</span>
-<span class="line">- Build solution (make sure build succeeds)</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2">
-<li>Open and build go-generator:</li>
-</ol>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Open go-generator solution in Visual Studio</span>
-<span class="line">- Build solution (make sure build succeeds)</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3">
-<li>Open and build go-modeler:</li>
-</ol>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">- Open go-modeler solution in Visual Studio</span>
-<span class="line">- Build solution (make sure build succeeds)</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h1 id="database-setup" tabindex="-1"><a class="header-anchor" href="#database-setup"><span>Database Setup</span></a></h1>
+<template><div><h1 id="database-and-application-setup" tabindex="-1"><a class="header-anchor" href="#database-and-application-setup"><span>Database and Application Setup</span></a></h1>
 <h2 id="prerequisites" tabindex="-1"><a class="header-anchor" href="#prerequisites"><span>Prerequisites</span></a></h2>
 <div class="hint-container warning">
 <p class="hint-container-title">Before You Begin</p>
@@ -138,17 +56,104 @@
 <p>Execute <code v-pre>GoGenCodeGeneratorForGODatabaseScript.sql</code> to create and initialize the generator database:</p>
 <div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token comment">-- Run the complete initialization script</span></span>
 <span class="line"><span class="token string">"GoGenCodeGeneratorForGODatabaseScript.sql"</span></span>
-<span class="line"></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div></li>
 </ol>
-<p>Final Database Verification</p>
+<h2 id="final-database-verification" tabindex="-1"><a class="header-anchor" href="#final-database-verification"><span>Final Database Verification</span></a></h2>
 <div class="hint-container warning">
 <p class="hint-container-title">Important</p>
 <p>After completing all database setup steps, verify you have these two databases in SQL Server Management Studio:</p>
-<p>GOPortal</p>
-<p>GenerativeObjects-22212eeb-4b0c-4fc2-84e2-87ac2002de5f</p>
+<ul>
+<li><code v-pre>GOPortal</code></li>
+<li><code v-pre>GenerativeObjects-22212eeb-4b0c-4fc2-84e2-87ac2002de5f</code></li>
+</ul>
 <p>If either database is missing, review the previous steps and ensure all scripts were executed successfully.</p>
+</div>
+<h2 id="application-settings-configuration" tabindex="-1"><a class="header-anchor" href="#application-settings-configuration"><span>Application Settings Configuration</span></a></h2>
+<div class="hint-container warning">
+<p class="hint-container-title">Critical Step</p>
+<p>This step is mandatory for GO to function properly. Each component requires specific configuration files.</p>
+</div>
+<h3 id="portal-settings-setup" tabindex="-1"><a class="header-anchor" href="#portal-settings-setup"><span>Portal Settings Setup</span></a></h3>
+<ol>
+<li>
+<p>Navigate to the Portal project:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line">C:<span class="token punctuation">\</span>Projects<span class="token punctuation">\</span>GenerativeObjects<span class="token punctuation">\</span>go-portal<span class="token punctuation">\</span>GeneratedCode<span class="token punctuation">\</span>WebApplicationLayer</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p>Create two files:</p>
+<ul>
+<li><code v-pre>appsettings.Development.json</code></li>
+<li><code v-pre>appsettings.Production.json</code></li>
+</ul>
+</li>
+<li>
+<p>Add the following content to both files:</p>
+</li>
+</ol>
+<div class="language-json line-numbers-mode" data-highlighter="prismjs" data-ext="json" data-title="json"><pre v-pre><code><span class="line"><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">"MainConnectionString"</span><span class="token operator">:</span> <span class="token string">"data source=.\\SQLEXPRESS01; initial catalog=GOPortal;integrated security=SSPI"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"DefaultHostName"</span><span class="token operator">:</span> <span class="token string">"localhost"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"ShowExceptionDetails"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"DatabaseFactoryToUse"</span><span class="token operator">:</span> <span class="token string">"SqlServerDatabaseFactory"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"DatabaseServerConnectionString"</span><span class="token operator">:</span> <span class="token string">"data source=.\\SQLEXPRESS01; integrated security=SSPI; TrustServerCertificate=True"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"MetamodelScriptsFolder"</span><span class="token operator">:</span> <span class="token string">"C:\\Projects\\GenerativeObjects\\GO-Metamodels"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token comment">// SMTP Configuration</span></span>
+<span class="line">  <span class="token property">"SMTP"</span><span class="token operator">:</span> <span class="token string">"TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"SMTPEmail"</span><span class="token operator">:</span> <span class="token string">"TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"SMTPEmailToDisplay"</span><span class="token operator">:</span> <span class="token string">"TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"SMTPUserName"</span><span class="token operator">:</span> <span class="token string">"TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"SMTPPassword"</span><span class="token operator">:</span> <span class="token string">"TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE"</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="generator-settings-setup" tabindex="-1"><a class="header-anchor" href="#generator-settings-setup"><span>Generator Settings Setup</span></a></h3>
+<ol>
+<li>
+<p>Navigate to the Generator project:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line">C:<span class="token punctuation">\</span>Projects<span class="token punctuation">\</span>GenerativeObjects<span class="token punctuation">\</span>go-generator<span class="token punctuation">\</span>GeneratedCode<span class="token punctuation">\</span>WebApplicationLayer</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p>Create the same settings files with identical content:</p>
+<ul>
+<li><code v-pre>appsettings.Development.json</code></li>
+<li><code v-pre>appsettings.Production.json</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="modeler-settings-setup" tabindex="-1"><a class="header-anchor" href="#modeler-settings-setup"><span>Modeler Settings Setup</span></a></h3>
+<ol>
+<li>
+<p>Navigate to the Modeler project:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line">C:<span class="token punctuation">\</span>Projects<span class="token punctuation">\</span>GenerativeObjects<span class="token punctuation">\</span>go-modeler<span class="token punctuation">\</span>GeneratedCode<span class="token punctuation">\</span>WebApplicationLayer</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p>Create the same settings files with identical content:</p>
+<ul>
+<li><code v-pre>appsettings.Development.json</code></li>
+<li><code v-pre>appsettings.Production.json</code></li>
+</ul>
+</li>
+</ol>
+<div class="hint-container tip">
+<p class="hint-container-title">Configuration Notes</p>
+<ul>
+<li>Replace <code v-pre>SQLEXPRESS01</code> with your SQL Server instance name if different</li>
+<li>The SMTP settings can remain as placeholders for initial setup</li>
+<li>Ensure the <code v-pre>MetamodelScriptsFolder</code> path matches your actual GO-Metamodels location</li>
+</ul>
+</div>
+<div class="hint-container warning">
+<p class="hint-container-title">Verify Setup</p>
+<p>After configuration:</p>
+<ol>
+<li>Check SQL Server instance name matches your installation</li>
+<li>Verify all paths exist</li>
+<li>Confirm your connection strings are correct</li>
+<li>Ensure you can connect to the databases</li>
+</ol>
 </div>
 <h2 id="deployment-process" tabindex="-1"><a class="header-anchor" href="#deployment-process"><span>Deployment Process</span></a></h2>
 <div class="hint-container warning">
@@ -162,7 +167,7 @@
 <ol>
 <li>Deploy Portal:</li>
 </ol>
-<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token comment"># First reset IIS as administrator</span></span>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line"><span class="token comment"># First reset IIS</span></span>
 <span class="line">iisreset</span>
 <span class="line"></span>
 <span class="line"><span class="token comment"># Then run deployment scripts in order:</span></span>

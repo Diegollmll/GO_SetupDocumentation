@@ -1,85 +1,4 @@
-## SSH Key Configuration
-
-::: warning Prerequisites
-Before cloning repositories, you must set up SSH authentication:
-:::
-
-1. Generate SSH key:
-```bash
-# Open Git Bash and run:
-ssh-keygen -t ed25519 -C "your_email@example.com"
-
-# Press Enter to accept default file location
-# Enter a secure passphrase when prompted
-```
-
-2. Add SSH key to ssh-agent:
-```bash
-# Start ssh-agent
-eval "$(ssh-agent -s)"
-
-# Add your SSH private key
-ssh-add ~/.ssh/id_ed25519
-```
-
-3. Add SSH key to GitHub:
-   - Copy the public key content:
-     ```bash
-     cat ~/.ssh/id_ed25519.pub
-     ```
-   - Go to GitHub Settings → SSH and GPG keys
-   - Click "New SSH key"
-   - Paste your public key
-   - Click "Add SSH key"
-
-4. Test SSH connection:
-```bash
-ssh -T git@github.com
-```
-
-## Repository Setup
-
-1. Create projects directory:
-```bash
-mkdir C:\Projects
-cd C:\Projects
-mkdir GenerativeObjects
-cd GenerativeObjects
-```
-
-2. Clone repositories:
-```bash
-# Clone Portal
-git clone <https://github.com/generative-objects-org/go-portal> go-portal
-
-# Clone Generator
-git clone <https://github.com/generative-objects-org/go-generator> go-generator
-
-# Clone Modeler
-git clone <https://github.com/generative-objects-org/go-modeler> go-modeler
-```
-
-## Building Solutions
-
-1. Open and build go-portal:
-```
-- Open go-portal solution in Visual Studio
-- Build solution (make sure build succeeds)
-```
-
-2. Open and build go-generator:
-```
-- Open go-generator solution in Visual Studio
-- Build solution (make sure build succeeds)
-```
-
-3. Open and build go-modeler:
-```
-- Open go-modeler solution in Visual Studio
-- Build solution (make sure build succeeds)
-```
-
-# Database Setup
+# Database and Application Setup
 
 ## Prerequisites
 
@@ -136,21 +55,89 @@ Ensure you have:
    ```sql
    -- Run the complete initialization script
    "GoGenCodeGeneratorForGODatabaseScript.sql"
-   
    ```
 
-Final Database Verification
+## Final Database Verification
 
 ::: warning Important
 After completing all database setup steps, verify you have these two databases in SQL Server Management Studio:
-
-GOPortal
-
-GenerativeObjects-22212eeb-4b0c-4fc2-84e2-87ac2002de5f
+- `GOPortal`
+- `GenerativeObjects-22212eeb-4b0c-4fc2-84e2-87ac2002de5f`
 
 If either database is missing, review the previous steps and ensure all scripts were executed successfully.
 :::
 
+## Application Settings Configuration
+
+::: warning Critical Step
+This step is mandatory for GO to function properly. Each component requires specific configuration files.
+:::
+
+### Portal Settings Setup
+
+1. Navigate to the Portal project:
+   ```bash
+   C:\Projects\GenerativeObjects\go-portal\GeneratedCode\WebApplicationLayer
+   ```
+
+2. Create two files:
+   - `appsettings.Development.json`
+   - `appsettings.Production.json`
+
+3. Add the following content to both files:
+
+```json
+{
+  "MainConnectionString": "data source=.\\SQLEXPRESS01; initial catalog=GOPortal;integrated security=SSPI",
+  "DefaultHostName": "localhost",
+  "ShowExceptionDetails": "true",
+  "DatabaseFactoryToUse": "SqlServerDatabaseFactory",
+  "DatabaseServerConnectionString": "data source=.\\SQLEXPRESS01; integrated security=SSPI; TrustServerCertificate=True",
+  "MetamodelScriptsFolder": "C:\\Projects\\GenerativeObjects\\GO-Metamodels",
+  // SMTP Configuration
+  "SMTP": "TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE",
+  "SMTPEmail": "TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE",
+  "SMTPEmailToDisplay": "TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE",
+  "SMTPUserName": "TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE",
+  "SMTPPassword": "TO BE DEFINED IN YOU ENVIRONMENT SETTINGS FILE"
+}
+```
+
+### Generator Settings Setup
+
+1. Navigate to the Generator project:
+   ```bash
+   C:\Projects\GenerativeObjects\go-generator\GeneratedCode\WebApplicationLayer
+   ```
+
+2. Create the same settings files with identical content:
+   - `appsettings.Development.json`
+   - `appsettings.Production.json`
+
+### Modeler Settings Setup
+
+1. Navigate to the Modeler project:
+   ```bash
+   C:\Projects\GenerativeObjects\go-modeler\GeneratedCode\WebApplicationLayer
+   ```
+
+2. Create the same settings files with identical content:
+   - `appsettings.Development.json`
+   - `appsettings.Production.json`
+
+::: tip Configuration Notes
+- Replace `SQLEXPRESS01` with your SQL Server instance name if different
+- The SMTP settings can remain as placeholders for initial setup
+- Ensure the `MetamodelScriptsFolder` path matches your actual GO-Metamodels location
+:::
+
+::: warning Verify Setup
+After configuration:
+1. Check SQL Server instance name matches your installation
+2. Verify all paths exist
+3. Confirm your connection strings are correct
+4. Ensure you can connect to the databases
+:::
 
 ## Deployment Process
 
@@ -162,7 +149,7 @@ Before running any deployment scripts, you must reset IIS:
 
 1. Deploy Portal:
 ```bash
-# First reset IIS as administrator
+# First reset IIS
 iisreset
 
 # Then run deployment scripts in order:
@@ -198,9 +185,9 @@ C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deploydatabasesc
 
 After database setup:
 
-1. [Configure IIS](./iis.md)
-2. [Deploy Application](../deployment/setup.md)
-3. [Verify Installation](../deployment/verification.md)
+1. [Configure IIS](/guide/installation/iis.md)
+2. [Deploy Application](/guide/deployment/setup.md)
+3. [Verify Installation](/guide/deployment/verification.md)
 
 ::: tip Database Maintenance
 Remember to:

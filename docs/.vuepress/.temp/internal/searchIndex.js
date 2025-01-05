@@ -181,20 +181,6 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/setup.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/verification.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "Advanced Features",
     "headers": [
       {
@@ -805,29 +791,8 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
-    "title": "Database Setup",
+    "title": "Database and Application Setup",
     "headers": [
-      {
-        "level": 2,
-        "title": "SSH Key Configuration",
-        "slug": "ssh-key-configuration",
-        "link": "#ssh-key-configuration",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Repository Setup",
-        "slug": "repository-setup",
-        "link": "#repository-setup",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Building Solutions",
-        "slug": "building-solutions",
-        "link": "#building-solutions",
-        "children": []
-      },
       {
         "level": 2,
         "title": "Prerequisites",
@@ -860,6 +825,42 @@ export const SEARCH_INDEX = [
             "title": "Generator Database Setup",
             "slug": "generator-database-setup",
             "link": "#generator-database-setup",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Final Database Verification",
+        "slug": "final-database-verification",
+        "link": "#final-database-verification",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Application Settings Configuration",
+        "slug": "application-settings-configuration",
+        "link": "#application-settings-configuration",
+        "children": [
+          {
+            "level": 3,
+            "title": "Portal Settings Setup",
+            "slug": "portal-settings-setup",
+            "link": "#portal-settings-setup",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Generator Settings Setup",
+            "slug": "generator-settings-setup",
+            "link": "#generator-settings-setup",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Modeler Settings Setup",
+            "slug": "modeler-settings-setup",
+            "link": "#modeler-settings-setup",
             "children": []
           }
         ]
@@ -1395,6 +1396,20 @@ export const SEARCH_INDEX = [
       }
     ],
     "path": "/guide/troubleshooting/error-reference.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/setup.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/verification.html",
     "pathLocale": "/",
     "extraFields": []
   },
