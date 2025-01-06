@@ -33,8 +33,22 @@ Enable the following features:
        ├─☐ Basic Authentication
        └─☐ Windows Authentication
 ```
+::: tip
+You may need to restart your computer after enabling IIS features and before installing URL Rewrite Module to ensure all components are properly initialized.
+:::
 
-### Step 3: Required Directories Setup
+
+### Step 3. URL Rewrite Module
+
+::: warning Prerequisites
+IIS must be installed and configured BEFORE installing URL Rewrite Module. Complete the Windows Features setup first.
+:::
+
+1. After IIS installation, download [URL Rewrite for IIS](https://www.iis.net/downloads/microsoft/url-rewrite) (x64 version)
+2. Install with default settings
+3. Verify in IIS Manager after installation
+
+### Step 4: Required Directories Setup
 
 1. Create directories:
    ```

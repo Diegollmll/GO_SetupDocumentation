@@ -111,16 +111,9 @@ export const SEARCH_INDEX = [
           },
           {
             "level": 3,
-            "title": "4. URL Rewrite Module",
-            "slug": "_4-url-rewrite-module",
-            "link": "#_4-url-rewrite-module",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "5. Git Tools",
-            "slug": "_5-git-tools",
-            "link": "#_5-git-tools",
+            "title": "4. Git Tools",
+            "slug": "_4-git-tools",
+            "link": "#_4-git-tools",
             "children": []
           }
         ]
@@ -177,20 +170,6 @@ export const SEARCH_INDEX = [
       }
     ],
     "path": "/guide/",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/setup.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/verification.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -298,26 +277,19 @@ export const SEARCH_INDEX = [
           },
           {
             "level": 3,
-            "title": "Generator Settings Setup",
-            "slug": "generator-settings-setup",
-            "link": "#generator-settings-setup",
-            "children": []
-          },
-          {
-            "level": 3,
             "title": "Modeler Settings Setup",
             "slug": "modeler-settings-setup",
             "link": "#modeler-settings-setup",
             "children": []
+          },
+          {
+            "level": 3,
+            "title": "Generator Settings Setup",
+            "slug": "generator-settings-setup",
+            "link": "#generator-settings-setup",
+            "children": []
           }
         ]
-      },
-      {
-        "level": 2,
-        "title": "Deployment Process",
-        "slug": "deployment-process",
-        "link": "#deployment-process",
-        "children": []
       },
       {
         "level": 2,
@@ -339,27 +311,64 @@ export const SEARCH_INDEX = [
         "title": "IIS Setup",
         "slug": "iis-setup",
         "link": "#iis-setup",
-        "children": []
+        "children": [
+          {
+            "level": 3,
+            "title": "Create Main Website",
+            "slug": "create-main-website",
+            "link": "#create-main-website",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Convert Directories to Applications",
+            "slug": "convert-directories-to-applications",
+            "link": "#convert-directories-to-applications",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Configure Application Pool Settings",
+            "slug": "configure-application-pool-settings",
+            "link": "#configure-application-pool-settings",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Verify Setup",
+            "slug": "verify-setup",
+            "link": "#verify-setup",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
-        "title": "Deploy Applications",
-        "slug": "deploy-applications",
-        "link": "#deploy-applications",
-        "children": []
+        "title": "Deploy and Verify Applications",
+        "slug": "deploy-and-verify-applications",
+        "link": "#deploy-and-verify-applications",
+        "children": [
+          {
+            "level": 3,
+            "title": "Deploy Components",
+            "slug": "deploy-components",
+            "link": "#deploy-components",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Verify Local Installation",
+            "slug": "verify-local-installation",
+            "link": "#verify-local-installation",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
-        "title": "Configure Applications in IIS",
-        "slug": "configure-applications-in-iis",
-        "link": "#configure-applications-in-iis",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Final Verification",
-        "slug": "final-verification",
-        "link": "#final-verification",
+        "title": "Next Steps",
+        "slug": "next-steps",
+        "link": "#next-steps",
         "children": []
       }
     ],
@@ -480,9 +489,16 @@ export const SEARCH_INDEX = [
           },
           {
             "level": 3,
-            "title": "Step 3: Required Directories Setup",
-            "slug": "step-3-required-directories-setup",
-            "link": "#step-3-required-directories-setup",
+            "title": "Step 3. URL Rewrite Module",
+            "slug": "step-3-url-rewrite-module",
+            "link": "#step-3-url-rewrite-module",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Step 4: Required Directories Setup",
+            "slug": "step-4-required-directories-setup",
+            "link": "#step-4-required-directories-setup",
             "children": []
           }
         ]
@@ -1096,13 +1112,6 @@ export const SEARCH_INDEX = [
             "children": []
           }
         ]
-      },
-      {
-        "level": 2,
-        "title": "Next Steps",
-        "slug": "next-steps",
-        "link": "#next-steps",
-        "children": []
       }
     ],
     "path": "/guide/development/first-app.html",
@@ -1110,154 +1119,42 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
-    "title": "Common Issues",
+    "title": "Common Installation Issues",
     "headers": [
       {
         "level": 2,
-        "title": "Installation Issues",
-        "slug": "installation-issues",
-        "link": "#installation-issues",
-        "children": [
-          {
-            "level": 3,
-            "title": "Visual Studio Setup",
-            "slug": "visual-studio-setup",
-            "link": "#visual-studio-setup",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "SQL Server Configuration",
-            "slug": "sql-server-configuration",
-            "link": "#sql-server-configuration",
-            "children": []
-          }
-        ]
+        "title": "Visual Studio Setup",
+        "slug": "visual-studio-setup",
+        "link": "#visual-studio-setup",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Development Issues",
-        "slug": "development-issues",
-        "link": "#development-issues",
-        "children": [
-          {
-            "level": 3,
-            "title": "Git Problems",
-            "slug": "git-problems",
-            "link": "#git-problems",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Database Migration",
-            "slug": "database-migration",
-            "link": "#database-migration",
-            "children": []
-          }
-        ]
+        "title": "SQL Server Configuration",
+        "slug": "sql-server-configuration",
+        "link": "#sql-server-configuration",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Runtime Issues",
-        "slug": "runtime-issues",
-        "link": "#runtime-issues",
-        "children": [
-          {
-            "level": 3,
-            "title": "Performance Problems",
-            "slug": "performance-problems",
-            "link": "#performance-problems",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Memory Issues",
-            "slug": "memory-issues",
-            "link": "#memory-issues",
-            "children": []
-          }
-        ]
+        "title": "IIS Setup Issues",
+        "slug": "iis-setup-issues",
+        "link": "#iis-setup-issues",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Deployment Issues",
-        "slug": "deployment-issues",
-        "link": "#deployment-issues",
-        "children": [
-          {
-            "level": 3,
-            "title": "File Permission Problems",
-            "slug": "file-permission-problems",
-            "link": "#file-permission-problems",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "URL Rewrite Issues",
-            "slug": "url-rewrite-issues",
-            "link": "#url-rewrite-issues",
-            "children": []
-          }
-        ]
+        "title": "File Permission Issues",
+        "slug": "file-permission-issues",
+        "link": "#file-permission-issues",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Generation Issues",
-        "slug": "generation-issues",
-        "link": "#generation-issues",
-        "children": [
-          {
-            "level": 3,
-            "title": "Model Validation",
-            "slug": "model-validation",
-            "link": "#model-validation",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Code Generation",
-            "slug": "code-generation",
-            "link": "#code-generation",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Best Practices for Issue Prevention",
-        "slug": "best-practices-for-issue-prevention",
-        "link": "#best-practices-for-issue-prevention",
-        "children": [
-          {
-            "level": 3,
-            "title": "Regular Maintenance",
-            "slug": "regular-maintenance",
-            "link": "#regular-maintenance",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Monitoring",
-            "slug": "monitoring",
-            "link": "#monitoring",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Getting Support",
-        "slug": "getting-support",
-        "link": "#getting-support",
-        "children": [
-          {
-            "level": 3,
-            "title": "Support Resources",
-            "slug": "support-resources",
-            "link": "#support-resources",
-            "children": []
-          }
-        ]
+        "title": "Getting Help",
+        "slug": "getting-help",
+        "link": "#getting-help",
+        "children": []
       },
       {
         "level": 2,
@@ -1276,183 +1173,55 @@ export const SEARCH_INDEX = [
     "headers": [
       {
         "level": 2,
-        "title": "Installation Errors",
-        "slug": "installation-errors",
-        "link": "#installation-errors",
-        "children": [
-          {
-            "level": 3,
-            "title": "IIS Configuration Errors",
-            "slug": "iis-configuration-errors",
-            "link": "#iis-configuration-errors",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Database Connection Errors",
-            "slug": "database-connection-errors",
-            "link": "#database-connection-errors",
-            "children": []
-          }
-        ]
+        "title": "IIS Configuration Errors",
+        "slug": "iis-configuration-errors",
+        "link": "#iis-configuration-errors",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Generation Errors",
-        "slug": "generation-errors",
-        "link": "#generation-errors",
-        "children": [
-          {
-            "level": 3,
-            "title": "Model Validation Errors",
-            "slug": "model-validation-errors",
-            "link": "#model-validation-errors",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Code Generation Failures",
-            "slug": "code-generation-failures",
-            "link": "#code-generation-failures",
-            "children": []
-          }
-        ]
+        "title": "Database Connection Errors",
+        "slug": "database-connection-errors",
+        "link": "#database-connection-errors",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Runtime Errors",
-        "slug": "runtime-errors",
-        "link": "#runtime-errors",
-        "children": [
-          {
-            "level": 3,
-            "title": "Application Pool Crashes",
-            "slug": "application-pool-crashes",
-            "link": "#application-pool-crashes",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Authentication Errors",
-            "slug": "authentication-errors",
-            "link": "#authentication-errors",
-            "children": []
-          }
-        ]
+        "title": "Application Pool Errors",
+        "slug": "application-pool-errors",
+        "link": "#application-pool-errors",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Deployment Errors",
-        "slug": "deployment-errors",
-        "link": "#deployment-errors",
-        "children": [
-          {
-            "level": 3,
-            "title": "Script Execution Failures",
-            "slug": "script-execution-failures",
-            "link": "#script-execution-failures",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Database Update Errors",
-            "slug": "database-update-errors",
-            "link": "#database-update-errors",
-            "children": []
-          }
-        ]
+        "title": "URL Rewrite Module Errors",
+        "slug": "url-rewrite-module-errors",
+        "link": "#url-rewrite-module-errors",
+        "children": []
       },
       {
         "level": 2,
-        "title": "Visual Studio Errors",
-        "slug": "visual-studio-errors",
-        "link": "#visual-studio-errors",
-        "children": [
-          {
-            "level": 3,
-            "title": "Build Errors",
-            "slug": "build-errors",
-            "link": "#build-errors",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Debug Errors",
-            "slug": "debug-errors",
-            "link": "#debug-errors",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Common Error Patterns",
-        "slug": "common-error-patterns",
-        "link": "#common-error-patterns",
-        "children": [
-          {
-            "level": 3,
-            "title": "Permission-Related",
-            "slug": "permission-related",
-            "link": "#permission-related",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Configuration-Related",
-            "slug": "configuration-related",
-            "link": "#configuration-related",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Error Prevention",
-        "slug": "error-prevention",
-        "link": "#error-prevention",
-        "children": [
-          {
-            "level": 3,
-            "title": "Best Practices",
-            "slug": "best-practices",
-            "link": "#best-practices",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Logging and Diagnostics",
-        "slug": "logging-and-diagnostics",
-        "link": "#logging-and-diagnostics",
-        "children": [
-          {
-            "level": 3,
-            "title": "Enable Advanced Logging",
-            "slug": "enable-advanced-logging",
-            "link": "#enable-advanced-logging",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Getting Help",
-        "slug": "getting-help",
-        "link": "#getting-help",
-        "children": [
-          {
-            "level": 3,
-            "title": "Support Resources",
-            "slug": "support-resources",
-            "link": "#support-resources",
-            "children": []
-          }
-        ]
+        "title": "Visual Studio Installation Errors",
+        "slug": "visual-studio-installation-errors",
+        "link": "#visual-studio-installation-errors",
+        "children": []
       }
     ],
     "path": "/guide/troubleshooting/error-reference.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/setup.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/verification.html",
     "pathLocale": "/",
     "extraFields": []
   },

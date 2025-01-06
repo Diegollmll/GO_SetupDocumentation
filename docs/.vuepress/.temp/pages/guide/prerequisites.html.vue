@@ -98,17 +98,7 @@
 <span class="line"></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
 </ol>
-<h3 id="_4-url-rewrite-module" tabindex="-1"><a class="header-anchor" href="#_4-url-rewrite-module"><span>4. URL Rewrite Module</span></a></h3>
-<div class="hint-container warning">
-<p class="hint-container-title">Prerequisites</p>
-<p>IIS must be installed before installing URL Rewrite Module</p>
-</div>
-<ol>
-<li>Download <a href="https://www.iis.net/downloads/microsoft/url-rewrite" target="_blank" rel="noopener noreferrer">URL Rewrite for IIS</a> (x64 version)</li>
-<li>Install with default settings</li>
-<li>Verify in IIS Manager after installation</li>
-</ol>
-<h3 id="_5-git-tools" tabindex="-1"><a class="header-anchor" href="#_5-git-tools"><span>5. Git Tools</span></a></h3>
+<h3 id="_4-git-tools" tabindex="-1"><a class="header-anchor" href="#_4-git-tools"><span>4. Git Tools</span></a></h3>
 <ol>
 <li>
 <p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer">Git for Windows</a>:</p>

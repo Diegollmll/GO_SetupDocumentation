@@ -122,11 +122,25 @@ Ensure you have:
 
 2. Open `CreateGoPortalWithData.sql` in SQL Server Management Studio
 
-3. At the top of the script, keep only the basic CREATE DATABASE statement:
-   ```sql
-   CREATE DATABASE GOPortal
-   ```
-   Remove any additional configurations (like containment settings)
+3. Modify the CREATE DATABASE statement at the top of the script:
+- Original script might look like:
+  ```sql
+  CREATE DATABASE [GOPortal]
+  CONTAINMENT = NONE
+  ON PRIMARY
+  LOG ON ...
+  -- other settings
+  ```
+- Modify it to only keep the basic creation:
+  ```sql
+  CREATE DATABASE [GOPortal]
+  GO
+  ```
+- Keep all other script content below the CREATE DATABASE statement unchanged
+
+::: tip
+Only modify the CREATE DATABASE statement at the top. Leave all other parts of the script (table creation, data insertion, etc.) exactly as they are.
+:::
 
 4. Execute the modified script to create and initialize the portal database
 
@@ -143,7 +157,7 @@ Ensure you have:
    C:\Projects\GenerativeObjects\go-generator\SQL\
    ```
 
-3. Execute `GoGenCodeGeneratorForGODatabaseScript.sql` to create and initialize the generator database:
+3. Execute `GoGenCodeGeneratorForGODatabaseScript.sql` in SQL Server Management Studio to create and initialize the generator database:
    ```sql
    -- Run the complete initialization script
    "GoGenCodeGeneratorForGODatabaseScript.sql"
@@ -181,16 +195,24 @@ Your exact instance name is crucial for the connection strings to work. You can 
 
 ### Portal Settings Setup
 
-1. Navigate to the Portal project:
-   ```bash
+1. Open the Portal solution in Visual Studio:
+   - Navigate to `C:\Projects\GenerativeObjects\go-portal`
+   - Open `GO.Portal.sln`
+
+2. In Solution Explorer, navigate to the WebApplicationLayer project:
+   ```
    C:\Projects\GenerativeObjects\go-portal\GeneratedCode\WebApplicationLayer
    ```
 
-2. Create two files:
-   - `appsettings.Development.json`
-   - `appsettings.Production.json`
+3. Locate the template files:
+   - `appsettings.Development.orig.json`
+   - `appsettings.Production.orig.json`
 
-3. Add the following content to both files (replace INSTANCE_NAME with your SQL Server instance name):
+4. Create your settings files:
+   - Make a copy of `appsettings.Development.orig.json` and rename it to `appsettings.Development.json`
+   - Make a copy of `appsettings.Production.orig.json` and rename it to `appsettings.Production.json`
+
+5. Add the following content to both files (replace INSTANCE_NAME with your SQL Server instance name):
 
 ```json
 {
@@ -215,95 +237,57 @@ For example, if your instance name is `DESKTOP-58OTF2M\SQLEXPRESS`, your connect
 "DatabaseServerConnectionString": "data source=DESKTOP-58OTF2M\\SQLEXPRESS; integrated security=SSPI; TrustServerCertificate=True",
 ```
 
+6. Rebuild the Portal solution:
+   - Right-click on the solution in Solution Explorer
+   - Select "Rebuild Solution"
+   - Verify the build succeeds without errors
+
 ::: warning Note on Backslashes
 When using a full instance name in JSON:
 - Use double backslashes (`\\`) in the connection string
 - Single backslash in SSMS connection dialog
 :::
 
-### Generator Settings Setup
-
-1. Navigate to the Generator project:
-   ```bash
-   C:\Projects\GenerativeObjects\go-generator\GeneratedCode\WebApplicationLayer
-   ```
-
-2. Create the same settings files with identical content:
-   - `appsettings.Development.json`
-   - `appsettings.Production.json`
-
 ### Modeler Settings Setup
 
-1. Navigate to the Modeler project:
-   ```bash
-   C:\Projects\GenerativeObjects\go-modeler\GeneratedCode\WebApplicationLayer
-   ```
+1. Open the Modeler solution in Visual Studio:
+   - Navigate to `C:\Projects\GenerativeObjects\go-modeler`
+   - Open `GO.Application.sln`
 
-2. Create the same settings files with identical content:
-   - `appsettings.Development.json`
-   - `appsettings.Production.json`
+2. In Solution Explorer, locate the template files in WebApplicationLayer:
+   - `appsettings.Development.orig.json`
+   - `appsettings.Production.orig.json`
+
+3. Follow the same process as Portal to create and configure your settings files.
+
+4. Rebuild the Modeler solution:
+   - Right-click on the solution in Solution Explorer
+   - Select "Rebuild Solution"
+   - Verify the build succeeds without errors
+
+### Generator Settings Setup
+
+1. Open the Generator solution in Visual Studio:
+   - Navigate to `C:\Projects\GenerativeObjects\go-generator`
+   - Open `GO.Generator.sln`
+
+2. In Solution Explorer, locate the template files in WebApplicationLayer:
+   - `appsettings.Development.orig.json`
+   - `appsettings.Production.orig.json`
+
+3. Follow the same process as Portal to create and configure your settings files.
+
+4. Rebuild the Generator solution:
+   - Right-click on the solution in Solution Explorer
+   - Select "Rebuild Solution"
+   - Verify the build succeeds without errors
+
 
 ::: tip Configuration Notes
 - Ensure you use your exact SQL Server instance name in connection strings
 - The SMTP settings can remain as placeholders for initial setup
 - Ensure the `MetamodelScriptsFolder` path matches your actual GO-Metamodels location
 :::
-
-::: warning Verify Setup
-After configuration:
-1. Check SQL Server instance name matches your installation
-2. Verify all paths exist
-3. Confirm your connection strings are correct
-4. Ensure you can connect to the databases
-:::
-
-## Deployment Process
-
-::: warning Important
-Before running any deployment scripts, you must reset IIS:
-1. Open Command Prompt as Administrator
-2. Run the command: `iisreset`
-:::
-
-1. Deploy Portal:
-```bash
-# First reset IIS
-iisreset
-
-# Then run deployment scripts in order:
-C:\Projects\GenerativeObjects\go-portal\Scripts\deploy_application.cmd
-C:\Projects\GenerativeObjects\go-portal\Scripts\deploy_runtime_libraries.cmd
-```
-
-2. Deploy Generator (run in order):
-```bash
-# Reset IIS
-iisreset
-
-# Deploy application
-C:\Projects\GenerativeObjects\go-generator\Scripts\deployapplication.cmd
-
-# Deploy libraries
-C:\Projects\GenerativeObjects\go-generator\Scripts\deploymodellerlibraries.bat
-
-# Deploy task performers
-C:\Projects\GenerativeObjects\go-generator\Scripts\deployTaskPerformers.bat
-```
-
-3. Deploy Modeler (run in order):
-```bash
-# Reset IIS
-iisreset
-
-# Deploy application
-C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deployapplication.cmd
-
-# Deploy libraries
-C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deploymodellerlibraries.bat
-
-# Deploy database script
-C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deploydatabasescript.bat
-```
 
 ## Next Steps
 

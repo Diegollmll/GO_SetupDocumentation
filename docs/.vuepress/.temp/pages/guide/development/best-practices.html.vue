@@ -1,5 +1,9 @@
 <template><div><h1 id="go-development-best-practices" tabindex="-1"><a class="header-anchor" href="#go-development-best-practices"><span>GO Development Best Practices</span></a></h1>
+<div class="hint-container warning">
+<p class="hint-container-title">Work in Progress</p>
+<p>🚧 The steps for creating and developing GO applications are currently under construction 🚧</p>
 <p>This guide outlines recommended practices for GO development to ensure maintainable, efficient, and reliable applications.</p>
+</div>
 <h2 id="project-structure" tabindex="-1"><a class="header-anchor" href="#project-structure"><span>Project Structure</span></a></h2>
 <h3 id="code-organization" tabindex="-1"><a class="header-anchor" href="#code-organization"><span>Code Organization</span></a></h3>
 <div class="hint-container tip">

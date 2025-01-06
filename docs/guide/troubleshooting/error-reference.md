@@ -1,10 +1,8 @@
 # Error Reference Guide
 
-This comprehensive guide helps you understand and resolve common errors encountered in GO development.
+This guide covers common errors encountered during GO installation and their solutions.
 
-## Installation Errors
-
-### IIS Configuration Errors
+## IIS Configuration Errors
 
 ::: danger Error: HTTP Error 500.19
 Internal Server Error: Cannot read configuration file
@@ -25,7 +23,7 @@ Internal Server Error: Cannot read configuration file
    iisreset
 ```
 
-### Database Connection Errors
+## Database Connection Errors
 
 ::: danger Error: Cannot open database "GoPortal" requested by the login
 The login failed. Login failed for user 'IIS APPPOOL\GOApplicationPool'
@@ -49,295 +47,89 @@ ALTER ROLE db_datawriter ADD MEMBER [IIS APPPOOL\GOApplicationPool]
 GO
 ```
 
-## Generation Errors
-
-### Model Validation Errors
-
-::: danger Error: Invalid model configuration
-Entity 'Customer' has no primary key defined
-:::
-
-**Cause:**
-- Missing required fields
-- Invalid relationships
-- Incorrect configurations
-
-**Solution:**
-1. Check entity configuration:
-   ```
-   - Verify primary key exists
-   - Check relationship definitions
-   - Validate field types
-   ```
-
-2. Review model settings:
-   ```
-   - Entity properties
-   - Field configurations
-   - Relationship mappings
-   ```
-
-### Code Generation Failures
-
-::: danger Error: Generation process failed
-Unable to create output files
-:::
-
-**Cause:**
-- File system permissions
-- Invalid templates
-- Path too long
-
-**Solution:**
-```powershell
-# Check permissions
-1. Verify output directory permissions
-2. Clear temporary files:
-   Remove-Item "C:\Windows\Temp\GO*" -Force -Recurse
-3. Check path length:
-   Move project closer to root
-```
-
-## Runtime Errors
-
-### Application Pool Crashes
+## Application Pool Errors
 
 ::: danger Error: Application pool stopped unexpectedly
 The worker process failed to initialize correctly
 :::
 
 **Cause:**
-- Memory issues
-- Unhandled exceptions
-- Configuration problems
+- Incorrect identity settings
+- Missing permissions
+- Invalid .NET version
 
 **Solution:**
-```powershell
-# Troubleshoot app pool
-1. Check event viewer:
-   Get-EventLog -LogName "Application" -Newest 50
-2. Verify memory settings
-3. Review error logs
-```
+1. Check application pool configuration:
+   ```
+   - Verify identity (.\username format)
+   - Ensure password is correct
+   - Confirm .NET version settings
+   ```
 
-### Authentication Errors
+2. Verify Windows Authentication:
+   ```
+   - Check IIS Authentication settings
+   - Verify Windows credentials
+   - Reset IIS if needed
+   ```
 
-::: danger Error: Authentication failed
-Windows authentication failed for user
+## URL Rewrite Module Errors
+
+::: danger Error: Module not found
+Could not find the URL Rewrite Module
 :::
 
 **Cause:**
-- IIS configuration
-- Windows settings
-- Network issues
+- Module not installed
+- Incorrect installation
+- IIS restart required
 
 **Solution:**
-```xml
-<!-- Check web.config settings -->
-<configuration>
-  <system.web>
-    <authentication mode="Windows"/>
-    <authorization>
-      <deny users="?"/>
-    </authorization>
-  </system.web>
-</configuration>
-```
+1. Verify installation:
+   ```
+   - Check in IIS Manager for URL Rewrite module
+   - Reinstall if missing
+   - Run iisreset after installation
+   ```
 
-## Deployment Errors
+2. Check web.config:
+   ```xml
+   <system.webServer>
+     <modules>
+       <add name="RewriteModule" />
+     </modules>
+   </system.webServer>
+   ```
 
-### Script Execution Failures
+## Visual Studio Installation Errors
 
-::: danger Error: Deployment script failed
-Access denied to target location
+::: danger Error: Missing Required Components
+Required workload or component is not installed
 :::
 
 **Cause:**
-- Insufficient permissions
-- Locked files
-- Invalid paths
+- Incomplete Visual Studio installation
+- Missing workloads
+- Corrupted installation
 
 **Solution:**
-```powershell
-# Fix deployment issues
-1. Run as administrator
-2. Stop IIS:
-   net stop w3svc
-3. Clear temporary files
-4. Restart IIS:
-   net start w3svc
-```
-
-### Database Update Errors
-
-::: danger Error: Cannot apply update script
-Database 'GoPortal' is not up to date
-:::
-
-**Cause:**
-- Missing previous updates
-- Database locks
-- Version mismatch
-
-**Solution:**
-```sql
--- Check database version
-SELECT * FROM [GO.LiveUpdate].ModelSync;
-
--- Apply missing updates
-:r "C:\Projects\YourApp\SQL\LiveUpdate.history\missing_update.sql"
-```
-
-## Visual Studio Errors
-
-### Build Errors
-
-::: danger Error: Build failed
-Could not copy output files
-:::
-
-**Cause:**
-- File locks
-- Missing references
-- Invalid configurations
-
-**Solution:**
-```powershell
-# Resolve build issues
-1. Clean solution
-2. Delete bin and obj folders
-3. Restore NuGet packages
-4. Rebuild solution
-```
-
-### Debug Errors
-
-::: danger Error: Unable to start debugging
-The web server process failed to initialize
-:::
-
-**Cause:**
-- IIS Express issues
-- Port conflicts
-- Debug settings
-
-**Solution:**
-```xml
-<!-- Check launch settings -->
-{
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    }
-  }
-}
-```
-
-## Common Error Patterns
-
-### Permission-Related
-
-::: tip Permission Error Pattern
-Most permission errors follow this pattern:
-:::
-
-1. Access Denied:
+1. Using Visual Studio Installer:
    ```
-   - Check user permissions
-   - Verify application pool identity
-   - Review folder permissions
+   - Modify installation
+   - Add missing workloads
+   - Repair if needed
    ```
 
-2. Security Exception:
+2. Verify components:
    ```
-   - Check Windows Authentication
-   - Verify SQL Server login
-   - Review IIS settings
-   ```
-
-### Configuration-Related
-
-::: tip Configuration Error Pattern
-Configuration errors typically involve:
-:::
-
-1. Missing Settings:
-   ```
-   - Check web.config
-   - Verify app settings
-   - Review connection strings
+   - ASP.NET workload
+   - .NET desktop development
+   - Web development tools
    ```
 
-2. Invalid Values:
-   ```
-   - Validate paths
-   - Check credentials
-   - Verify URLs
-   ```
-
-## Error Prevention
-
-### Best Practices
-
-1. Regular Maintenance:
-   ```
-   - Clear temporary files
-   - Update databases
-   - Check log files
-   ```
-
-2. Monitoring:
-   ```
-   - Watch application pools
-   - Monitor database connections
-   - Check error logs
-   ```
-
-## Logging and Diagnostics
-
-### Enable Advanced Logging
-
-::: tip Enhanced Troubleshooting
-Enable detailed logging for better diagnosis:
-:::
-
-```xml
-<!-- Web.config logging -->
-<configuration>
-  <system.diagnostics>
-    <trace autoflush="true">
-      <listeners>
-        <add name="textWriterTraceListener" 
-             type="System.Diagnostics.TextWriterTraceListener" 
-             initializeData="log.txt"/>
-      </listeners>
-    </trace>
-  </system.diagnostics>
-</configuration>
-```
-
-## Getting Help
-
-### Support Resources
-
-1. Internal Support:
-   ```
-   - Check documentation
-   - Review error logs
-   - Contact system administrator
-   ```
-
-2. External Support:
-   ```
-   - Submit support ticket
-   - Check knowledge base
-   - Contact GO support
-   ```
-
-::: tip Keep Records
-Document error resolutions for future reference.
+::: tip Installation Tips
+Most installation errors can be resolved by:
+1. Running installers as Administrator
+2. Ensuring proper permissions
+3. Following the installation steps in order
 :::

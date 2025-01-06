@@ -1,6 +1,12 @@
 # Creating Your First GO Application
 
-This guide walks you through creating your first GO application, from initial setup to running the application.
+::: warning Work in Progress
+🚧 The steps for creating and developing GO applications are currently under construction 🚧
+
+The GO setup and installation process is complete and verified
+Application development pages are being actively updated
+Features and capabilities documentation is still evolving
+:::
 
 ## Prerequisites
 
@@ -19,7 +25,7 @@ Ensure you have:
 1. Open your browser
 2. Navigate to:
    ```
-   http://localhost/GoMetaPortal
+   http://localhost/go-meta-portal
    ```
 3. Login with your credentials
 
@@ -289,13 +295,7 @@ Common fixes:
 3. Review logs
 :::
 
-## Next Steps
 
-After creating your first application:
-
-1. Explore [Advanced Features](../development/advanced-features.md)
-2. Review [Best Practices](../development/best-practices.md)
-3. Learn about [Customization](../development/customization.md)
 
 ::: tip Congratulations!
 You've created your first GO application! Continue exploring more features to build more complex applications.

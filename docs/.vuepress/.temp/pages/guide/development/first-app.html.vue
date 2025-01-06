@@ -1,5 +1,11 @@
 <template><div><h1 id="creating-your-first-go-application" tabindex="-1"><a class="header-anchor" href="#creating-your-first-go-application"><span>Creating Your First GO Application</span></a></h1>
-<p>This guide walks you through creating your first GO application, from initial setup to running the application.</p>
+<div class="hint-container warning">
+<p class="hint-container-title">Work in Progress</p>
+<p>🚧 The steps for creating and developing GO applications are currently under construction 🚧</p>
+<p>The GO setup and installation process is complete and verified
+Application development pages are being actively updated
+Features and capabilities documentation is still evolving</p>
+</div>
 <h2 id="prerequisites" tabindex="-1"><a class="header-anchor" href="#prerequisites"><span>Prerequisites</span></a></h2>
 <div class="hint-container warning">
 <p class="hint-container-title">Before You Begin</p>
@@ -15,7 +21,7 @@
 <h3 id="step-1-access-go-meta-portal" tabindex="-1"><a class="header-anchor" href="#step-1-access-go-meta-portal"><span>Step 1: Access GO Meta Portal</span></a></h3>
 <ol>
 <li>Open your browser</li>
-<li>Navigate to:<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">http://localhost/GoMetaPortal</span>
+<li>Navigate to:<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">http://localhost/go-meta-portal</span>
 <span class="line"></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
 <li>Login with your credentials</li>
@@ -300,13 +306,6 @@
 <li>Review logs</li>
 </ol>
 </div>
-<h2 id="next-steps" tabindex="-1"><a class="header-anchor" href="#next-steps"><span>Next Steps</span></a></h2>
-<p>After creating your first application:</p>
-<ol>
-<li>Explore <RouteLink to="/guide/development/advanced-features.html">Advanced Features</RouteLink></li>
-<li>Review <RouteLink to="/guide/development/best-practices.html">Best Practices</RouteLink></li>
-<li>Learn about <RouteLink to="/guide/development/customization.html">Customization</RouteLink></li>
-</ol>
 <div class="hint-container tip">
 <p class="hint-container-title">Congratulations!</p>
 <p>You've created your first GO application! Continue exploring more features to build more complex applications.</p>

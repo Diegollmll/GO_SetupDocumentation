@@ -74,17 +74,7 @@ Installation can take 30+ minutes depending on your internet speed.
    dotnet --list-runtimes
    ```
 
-### 4. URL Rewrite Module
-
-::: warning Prerequisites
-IIS must be installed before installing URL Rewrite Module
-:::
-
-1. Download [URL Rewrite for IIS](https://www.iis.net/downloads/microsoft/url-rewrite) (x64 version)
-2. Install with default settings
-3. Verify in IIS Manager after installation
-
-### 5. Git Tools
+### 4. Git Tools
 
 1. [Git for Windows](https://git-scm.com/download/win):
    - Choose "Git from the command line and GUI"
