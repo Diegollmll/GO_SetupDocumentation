@@ -285,18 +285,35 @@
 </ul>
 </li>
 <li>
-<p>Follow the same process as Portal to create and configure your settings files.</p>
-</li>
-<li>
-<p>Rebuild the Modeler solution:</p>
+<p>Create your settings files:</p>
 <ul>
-<li>Right-click on the solution in Solution Explorer</li>
-<li>Select &quot;Rebuild Solution&quot;</li>
-<li>Verify the build succeeds without errors</li>
+<li>Make a copy of <code v-pre>appsettings.Development.orig.json</code> and rename it to <code v-pre>appsettings.Development.json</code></li>
+<li>Make a copy of <code v-pre>appsettings.Production.orig.json</code> and rename it to <code v-pre>appsettings.Production.json</code></li>
 </ul>
 </li>
+<li>
+<p>Add the following content to both files (replace INSTANCE_NAME with your SQL Server instance name):</p>
+</li>
 </ol>
-<h3 id="generator-settings-setup" tabindex="-1"><a class="header-anchor" href="#generator-settings-setup"><span>Generator Settings Setup</span></a></h3>
+<div class="language-json line-numbers-mode" data-highlighter="prismjs" data-ext="json" data-title="json"><pre v-pre><code><span class="line"><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">"MainConnectionString"</span><span class="token operator">:</span> <span class="token string">"data source=.\\INSTANCE_NAME; initial catalog=GenerativeObjectsWithGO2;MultipleActiveResultSets=True; integrated security=SSPI"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"ShowExceptionDetails"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"SwaggerEnabled"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"ActivateClientLogging"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token comment">// Code generator settings</span></span>
+<span class="line">  <span class="token property">"IncludeDeveloperLogForHtmlFiles"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOInstancesConnectionStringTemplate"</span><span class="token operator">:</span> <span class="token string">"data source=.\\INSTANCE_NAME; initial catalog={0};MultipleActiveResultSets=True;integrated security=SSPI"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOPortalLogin"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOPortalPassword"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">  <span class="token property">"Driver_ODBC_SQLServer"</span><span class="token operator">:</span> <span class="token string">"SQL Server Native Client 11.0"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"Driver_ODBC_MySQL"</span><span class="token operator">:</span> <span class="token string">"MySQL ODBC 5.1 Driver"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"Driver_ODBC_Oracle"</span><span class="token operator">:</span> <span class="token string">"Oracle dans OraClient11g_home2"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"DefaultApplicationDatabaseName"</span><span class="token operator">:</span> <span class="token string">"[ProjectName]-Application-[ApplicationId]"</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="generator-settings-setup" tabindex="-1"><a class="header-anchor" href="#generator-settings-setup"><span>Generator Settings Setup</span></a></h3>
 <ol>
 <li>
 <p>Open the Generator solution in Visual Studio:</p>
@@ -313,18 +330,42 @@
 </ul>
 </li>
 <li>
-<p>Follow the same process as Portal to create and configure your settings files.</p>
-</li>
-<li>
-<p>Rebuild the Generator solution:</p>
+<p>Create your settings files:</p>
 <ul>
-<li>Right-click on the solution in Solution Explorer</li>
-<li>Select &quot;Rebuild Solution&quot;</li>
-<li>Verify the build succeeds without errors</li>
+<li>Make a copy of <code v-pre>appsettings.Development.orig.json</code> and rename it to <code v-pre>appsettings.Development.json</code></li>
+<li>Make a copy of <code v-pre>appsettings.Production.orig.json</code> and rename it to <code v-pre>appsettings.Production.json</code></li>
 </ul>
 </li>
+<li>
+<p>Add the following content to both files (replace INSTANCE_NAME with your SQL Server instance name):</p>
+</li>
 </ol>
-<div class="hint-container tip">
+<div class="language-json line-numbers-mode" data-highlighter="prismjs" data-ext="json" data-title="json"><pre v-pre><code><span class="line"><span class="token punctuation">{</span></span>
+<span class="line">  <span class="token property">"MainConnectionString"</span><span class="token operator">:</span> <span class="token string">"data source=.\\INSTANCE_NAME; initial catalog=GenerativeObjects-22212eeb-4b0c-4fc2-84e2-87ac2002de5f;MultipleActiveResultSets=True;integrated security=SSPI"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"IncludeDeveloperLogForHtmlFiles"</span><span class="token operator">:</span> <span class="token string">"true"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token comment">// Code generator settings</span></span>
+<span class="line">  <span class="token property">"GOInstancesConnectionStringTemplate"</span><span class="token operator">:</span> <span class="token string">"data source=.\\INSTANCE_NAME; initial catalog={0};MultipleActiveResultSets=True;integrated security=SSPI"</span><span class="token punctuation">,</span></span>
+<span class="line"></span>
+<span class="line">  <span class="token property">"GOPortalLogin"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOPortalPassword"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"DefaultHostName"</span><span class="token operator">:</span> <span class="token string">"localhost"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOMetamodelUrl"</span><span class="token operator">:</span> <span class="token string">"http://localhost/go-meta-modeler"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOMetamodelLogin"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOMetamodelPassword"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GitBinFolder"</span><span class="token operator">:</span> <span class="token string">"C:\\Program Files\\Git\\bin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOGitRootRepository"</span><span class="token operator">:</span> <span class="token string">"git@github.com:generative-objects-corp"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"MSBuildPath"</span><span class="token operator">:</span> <span class="token string">"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"RootFolderToGenerate"</span><span class="token operator">:</span> <span class="token string">"c:\\Projects"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"MaximumNumberOfParallelTasks"</span><span class="token operator">:</span> <span class="token string">"6"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GOPortalUrl"</span><span class="token operator">:</span> <span class="token string">"http://localhost/go-meta-portal"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GeneratorUserName"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"GeneratorPassword"</span><span class="token operator">:</span> <span class="token string">"Admin"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"SqlServerServerName"</span><span class="token operator">:</span> <span class="token string">".\\INSTANCE_NAME"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"CloudCredentials"</span><span class="token operator">:</span> <span class="token string">"C:\\Program Files (x86)\\GenerativeObjects\\Azure\\azure.auth"</span><span class="token punctuation">,</span></span>
+<span class="line">  <span class="token property">"MetamodelScriptsFolder"</span><span class="token operator">:</span> <span class="token string">"C:\\Projects\\GenerativeObjects\\GO-Metamodels"</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container tip">
 <p class="hint-container-title">Configuration Notes</p>
 <ul>
 <li>Ensure you use your exact SQL Server instance name in connection strings</li>
@@ -336,8 +377,6 @@
 <p>After database setup:</p>
 <ol>
 <li><RouteLink to="/guide/installation/iis.html">Configure IIS</RouteLink></li>
-<li><RouteLink to="/guide/deployment/setup.html">Deploy Application</RouteLink></li>
-<li><RouteLink to="/guide/deployment/verification.html">Verify Installation</RouteLink></li>
 </ol>
 <div class="hint-container tip">
 <p class="hint-container-title">Database Maintenance</p>

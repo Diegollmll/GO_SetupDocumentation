@@ -11,11 +11,11 @@
 <li><RouteLink to="/guide/installation/iis.html">IIS Configuration</RouteLink></li>
 </ul>
 </li>
-<li><RouteLink to="/guide/development/first-app.html">Create your first app</RouteLink></li>
-<li><RouteLink to="/guide/troubleshooting/common-issues.html">Common Issues</RouteLink></li>
+<li><RouteLink to="/guide/deployment/setup.html">Deploy Your First Application</RouteLink></li>
+<li><RouteLink to="/guide/deployment/verification.html">Verify Installation</RouteLink></li>
 </ol>
 <h2 id="need-help" tabindex="-1"><a class="header-anchor" href="#need-help"><span>Need Help?</span></a></h2>
-
+<p>Check our <RouteLink to="/guide/troubleshooting/common-issues.html">troubleshooting guide</RouteLink> or <RouteLink to="/guide/troubleshooting/error-reference.html">error reference</RouteLink>.</p>
 </div></template>
 
 

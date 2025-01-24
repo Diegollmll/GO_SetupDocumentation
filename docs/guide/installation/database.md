@@ -258,12 +258,31 @@ When using a full instance name in JSON:
    - `appsettings.Development.orig.json`
    - `appsettings.Production.orig.json`
 
-3. Follow the same process as Portal to create and configure your settings files.
+3. Create your settings files:
+   - Make a copy of `appsettings.Development.orig.json` and rename it to `appsettings.Development.json`
+   - Make a copy of `appsettings.Production.orig.json` and rename it to `appsettings.Production.json`
 
-4. Rebuild the Modeler solution:
-   - Right-click on the solution in Solution Explorer
-   - Select "Rebuild Solution"
-   - Verify the build succeeds without errors
+4. Add the following content to both files (replace INSTANCE_NAME with your SQL Server instance name):
+
+```json
+{
+  "MainConnectionString": "data source=.\\INSTANCE_NAME; initial catalog=GenerativeObjectsWithGO2;MultipleActiveResultSets=True; integrated security=SSPI",
+  "ShowExceptionDetails": "true",
+  "SwaggerEnabled": "true",
+  "ActivateClientLogging": "true",
+  // Code generator settings
+  "IncludeDeveloperLogForHtmlFiles": "true",
+  "GOInstancesConnectionStringTemplate": "data source=.\\INSTANCE_NAME; initial catalog={0};MultipleActiveResultSets=True;integrated security=SSPI",
+  "GOPortalLogin": "Admin",
+  "GOPortalPassword": "Admin",
+
+
+  "Driver_ODBC_SQLServer": "SQL Server Native Client 11.0",
+  "Driver_ODBC_MySQL": "MySQL ODBC 5.1 Driver",
+  "Driver_ODBC_Oracle": "Oracle dans OraClient11g_home2",
+  "DefaultApplicationDatabaseName": "[ProjectName]-Application-[ApplicationId]"
+}
+```
 
 ### Generator Settings Setup
 
@@ -275,13 +294,38 @@ When using a full instance name in JSON:
    - `appsettings.Development.orig.json`
    - `appsettings.Production.orig.json`
 
-3. Follow the same process as Portal to create and configure your settings files.
+3. Create your settings files:
+   - Make a copy of `appsettings.Development.orig.json` and rename it to `appsettings.Development.json`
+   - Make a copy of `appsettings.Production.orig.json` and rename it to `appsettings.Production.json`
 
-4. Rebuild the Generator solution:
-   - Right-click on the solution in Solution Explorer
-   - Select "Rebuild Solution"
-   - Verify the build succeeds without errors
+4. Add the following content to both files (replace INSTANCE_NAME with your SQL Server instance name):
 
+```json
+{
+  "MainConnectionString": "data source=.\\INSTANCE_NAME; initial catalog=GenerativeObjects-22212eeb-4b0c-4fc2-84e2-87ac2002de5f;MultipleActiveResultSets=True;integrated security=SSPI",
+  "IncludeDeveloperLogForHtmlFiles": "true",
+  // Code generator settings
+  "GOInstancesConnectionStringTemplate": "data source=.\\INSTANCE_NAME; initial catalog={0};MultipleActiveResultSets=True;integrated security=SSPI",
+
+  "GOPortalLogin": "Admin",
+  "GOPortalPassword": "Admin",
+  "DefaultHostName": "localhost",
+  "GOMetamodelUrl": "http://localhost/go-meta-modeler",
+  "GOMetamodelLogin": "Admin",
+  "GOMetamodelPassword": "Admin",
+  "GitBinFolder": "C:\\Program Files\\Git\\bin",
+  "GOGitRootRepository": "git@github.com:generative-objects-corp",
+  "MSBuildPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe",
+  "RootFolderToGenerate": "c:\\Projects",
+  "MaximumNumberOfParallelTasks": "6",
+  "GOPortalUrl": "http://localhost/go-meta-portal",
+  "GeneratorUserName": "Admin",
+  "GeneratorPassword": "Admin",
+  "SqlServerServerName": ".\\INSTANCE_NAME",
+  "CloudCredentials": "C:\\Program Files (x86)\\GenerativeObjects\\Azure\\azure.auth",
+  "MetamodelScriptsFolder": "C:\\Projects\\GenerativeObjects\\GO-Metamodels"
+}
+```
 
 ::: tip Configuration Notes
 - Ensure you use your exact SQL Server instance name in connection strings
@@ -294,8 +338,6 @@ When using a full instance name in JSON:
 After database setup:
 
 1. [Configure IIS](/guide/installation/iis.md)
-2. [Deploy Application](/guide/deployment/setup.md)
-3. [Verify Installation](/guide/deployment/verification.md)
 
 ::: tip Database Maintenance
 Remember to:

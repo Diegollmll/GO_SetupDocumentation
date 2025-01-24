@@ -1,5 +1,48 @@
 # Final Configuration Steps
 
+## Deployment
+
+### Deploy Components
+
+1. Deploy Portal:
+```bash
+# Reset IIS
+iisreset
+
+# Run deployment scripts in order
+C:\Projects\GenerativeObjects\go-portal\Scripts\deploy_application.cmd
+C:\Projects\GenerativeObjects\go-portal\Scripts\deploy_runtime_libraries.cmd
+```
+
+2. Deploy Generator:
+```bash
+C:\Projects\GenerativeObjects\go-generator\Scripts\deployapplication.cmd
+C:\Projects\GenerativeObjects\go-generator\Scripts\deploymodellerlibraries.bat
+C:\Projects\GenerativeObjects\go-generator\Scripts\deployTaskPerformers.bat
+```
+
+3. Deploy Modeler:
+```bash
+C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deployapplication.cmd
+C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deploymodellerlibraries.bat
+C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deploydatabasescript.bat
+```
+
+### Verify Deployment
+
+After running the scripts, confirm the following directories are created under the GO Applications folder:
+
+```
+C:\inetpub\wwwroot\GOAPPS\go-meta-portal
+C:\inetpub\wwwroot\GOAPPS\go-meta-generator
+C:\inetpub\wwwroot\GOAPPS\go-meta-modeler
+```
+
+If the directories are not created:
+
+- Check the deployment logs for errors.
+- Verify the deployment scripts were executed with appropriate permissions.
+
 ## IIS Setup
 
 ### Create Main Website
@@ -80,34 +123,6 @@ After converting the directories to applications, configure each application poo
    - Select "Application Pools"
    - Verify all pools show "Started" status
    - Start any stopped pools
-
-## Deploy and Verify Applications
-
-### Deploy Components
-
-1. Deploy Portal:
-```bash
-# Reset IIS
-iisreset
-
-# Run deployment scripts in order
-C:\Projects\GenerativeObjects\go-portal\Scripts\deploy_application.cmd
-C:\Projects\GenerativeObjects\go-portal\Scripts\deploy_runtime_libraries.cmd
-```
-
-2. Deploy Generator:
-```bash
-C:\Projects\GenerativeObjects\go-generator\Scripts\deployapplication.cmd
-C:\Projects\GenerativeObjects\go-generator\Scripts\deploymodellerlibraries.bat
-C:\Projects\GenerativeObjects\go-generator\Scripts\deployTaskPerformers.bat
-```
-
-3. Deploy Modeler:
-```bash
-C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deployapplication.cmd
-C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deploymodellerlibraries.bat
-C:\Projects\GenerativeObjects\go-modeler\go-application\Scripts\deploydatabasescript.bat
-```
 
 ### Verify Local Installation
 

@@ -174,6 +174,20 @@ export const SEARCH_INDEX = [
     "extraFields": []
   },
   {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/setup.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "",
+    "headers": [],
+    "path": "/guide/deployment/verification.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "Repostiories, Database and Application Setup",
     "headers": [
       {
@@ -308,6 +322,28 @@ export const SEARCH_INDEX = [
     "headers": [
       {
         "level": 2,
+        "title": "Deployment",
+        "slug": "deployment",
+        "link": "#deployment",
+        "children": [
+          {
+            "level": 3,
+            "title": "Deploy Components",
+            "slug": "deploy-components",
+            "link": "#deploy-components",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Verify Deployment",
+            "slug": "verify-deployment",
+            "link": "#verify-deployment",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
         "title": "IIS Setup",
         "slug": "iis-setup",
         "link": "#iis-setup",
@@ -338,21 +374,6 @@ export const SEARCH_INDEX = [
             "title": "Verify Setup",
             "slug": "verify-setup",
             "link": "#verify-setup",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Deploy and Verify Applications",
-        "slug": "deploy-and-verify-applications",
-        "link": "#deploy-and-verify-applications",
-        "children": [
-          {
-            "level": 3,
-            "title": "Deploy Components",
-            "slug": "deploy-components",
-            "link": "#deploy-components",
             "children": []
           },
           {
@@ -1208,20 +1229,6 @@ export const SEARCH_INDEX = [
       }
     ],
     "path": "/guide/troubleshooting/error-reference.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/setup.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/guide/deployment/verification.html",
     "pathLocale": "/",
     "extraFields": []
   },
